@@ -148,3 +148,8 @@ ES6 (ECMAScript 6, ESNext, ES2015)
 
 http://es6-features.org
 
+Array methods - filter, map, reduce, forEach
+
+Visual Studio Code (or any editor)
+Chrome Browser
+Node.js (14.X LTS)
