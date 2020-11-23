@@ -65,6 +65,8 @@ JavaScript
 
                     - As an 'Immediately Invoked Function Expression' - IIFE
 
+                    - Using the 'new' keyword
+
 
 add(10,20)
 add(10,'20')
@@ -119,3 +121,30 @@ The counter variable should be 'PRIVATE'
 counter = 10000
 
 spinner.counter = 10000
+
+
+A function as a class is called as 'Constructor Function' 
+(The function starts with an uppercase letter as a convention)
+     - invoked using the 'new' keyword
+        - this -> new object
+        - this -> returned by default
+
+Prototypal Inheritance
+    One object becomes a base object for a family of objects created using the same constructor function
+
+
+ES6 (ECMAScript 6, ESNext, ES2015)
+1. let
+2. const
+3. Array destructuring
+4. Rest operator (array)
+5. Spread  operator (array)
+6. Array destructuring
+7. Rest operator (array)
+8. Spread  operator (array)
+9. arrow functions
+10. template strings
+11. classes
+
+http://es6-features.org
+
