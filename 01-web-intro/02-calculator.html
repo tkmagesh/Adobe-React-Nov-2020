@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <hr>
+    <input type="number" id="txtNumber1">
+    <input type="number" id="txtNumber2">
+    <br>
+    <input type="button" value="Add" id="btnAdd">
+    <input type="button" value="Subtract" id="btnSubtract">
+    <input type="button" value="Multiply" id="btnMultiply">
+    <input type="button" value="Divide" id="btnDivide">
+    <div id="divResult">[Result]</div>
+    <script>
+        var btnAdd = document.getElementById('btnAdd');
+        btnAdd.addEventListener('click', function(){
+            var num1 = parseInt(document.getElementById('txtNumber1').value),
+                num2 = parseInt(document.getElementById('txtNumber2').value),
+                result = num1 + num2;
+            document.getElementById('divResult').innerText = result;
+        })
+
+        var btnSubtract = document.getElementById('btnSubtract');
+        btnSubtract.addEventListener('click', function () {
+            var num1 = parseInt(document.getElementById('txtNumber1').value),
+                num2 = parseInt(document.getElementById('txtNumber2').value),
+                result = num1 - num2;
+            document.getElementById('divResult').innerText = result;
+        })
+
+        var btnMultiply = document.getElementById('btnMultiply');
+        btnMultiply.addEventListener('click', function () {
+            var num1 = parseInt(document.getElementById('txtNumber1').value),
+                num2 = parseInt(document.getElementById('txtNumber2').value),
+                result = num1 * num2;
+            document.getElementById('divResult').innerText = result;
+        })
+        
+        var btnDivide = document.getElementById('btnDivide');
+        btnDivide.addEventListener('click', function () {
+            var num1 = parseInt(document.getElementById('txtNumber1').value),
+                num2 = parseInt(document.getElementById('txtNumber2').value),
+                result = num1 / num2;
+            document.getElementById('divResult').innerText = result;
+        })
+        
+    </script>
+</body>
+</html>
