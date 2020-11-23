@@ -63,6 +63,8 @@ JavaScript
 
                     - Using the 'apply' method of the function
 
+                    - As an 'Immediately Invoked Function Expression' - IIFE
+
 
 add(10,20)
 add(10,'20')
@@ -88,3 +90,32 @@ function add(){
     }
     return arguments.length <= 1 ? parseArg(arguments[0]) : parseArg(arguments[0]) + add([].slice.call(arguments, 1))
 }
+
+Problem
+================================================================
+create a html file "clickTracker.html" displaying a button "Track"
+Every time the button is clicked, increment a varible and display the value in the page
+
+Problem
+================================================================
+NO HTML & DOM
+ONLY JavaScript
+
+var spinner = /*.....*/
+// up(), down()
+spinner.up() => 1
+spinner.up() => 2
+spinner.up() => 3
+spinner.up() => 4
+
+spinner.donw() => 3
+spinner.donw() => 2
+spinner.donw() => 1
+spinner.donw() => 0
+spinner.donw() => -1
+
+The counter variable should be 'PRIVATE'
+
+counter = 10000
+
+spinner.counter = 10000
