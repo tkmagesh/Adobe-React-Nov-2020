@@ -4,3 +4,87 @@
     What?
 2. CSS
     How?
+
+JavaScript
+    Data Types
+        number, string, boolean
+        undefined, object, function
+
+    Programming Constructs
+        var, if else, switch case, while, for, for in, try catch finally, throw, function
+
+    APIs
+        Array, Object, Math, RegEx, Error, timer (setTimeout, clearTimeout, setInterval, clearInterval)
+
+    1. loosely typed
+    2. dynamic
+        object => map, hash (collection of key/value pairs)
+        Object attributes can be accessed using '.' and '[]' notations
+        object methods are nothing but attributes with a function as a value
+    3. functional
+            functions are objects
+                - can be assigned to variables
+                - can have attributes
+                - can have methods
+                - passed as arguments to other functions
+                - returned as return values from other functions
+
+            creation:
+                //function statement
+                function add(x,y){
+                    return x + y;
+                }
+
+                //function expression
+                var add = function(){
+                    return x + y;
+                }
+
+            implicit values in a function
+                - arguments
+                    array like object with all the values passed as arguments
+                        index is supported (arguments[0], arguments[1].....)
+                        length attribute (# of arguments)
+
+                - this (invocation context)
+
+            invocation context (this)
+                It doesnot matter WHERE a function is OR WHO owns a function
+                What matters is "how the function is invoked"
+
+                Function Invocation Patterns
+                    - Invoked as a method of an object (obj)
+                        this -> obj
+
+                    - Invoked as a function
+                        this -> global (window)
+
+                    - Using the 'call' method of the function
+
+                    - Using the 'apply' method of the function
+
+
+add(10,20)
+add(10,'20')
+add(10,'abc')
+add([10,20], [30,40])
+add([10,20], [30,'40'])
+add([10,20], [30,['40', 50]])
+add([10,20], [30,['40', 'abc']])
+add(function(){ return [10,20];} , function(){ return [30,['40', 'abc']]; })
+add([function(){ return [10,20];} , function(){ return [30,['40', 'abc']]; }])
+add(function(){ return [function(){ return [10,20];} , function(){ return [30,['40', 'abc']]; }];})
+add(10)
+add()
+add(10,20,30,40,50)
+
+http://bit.ly/javascript-training-videos
+
+function add(){ 
+    function parseArg(n){
+        if (typeof n === 'function') return parseArg(n());
+        if (Array.isArray(n)) return add.apply(this, n)
+        return isNaN(n) ? 0 : parseInt(n);
+    }
+    return arguments.length <= 1 ? parseArg(arguments[0]) : parseArg(arguments[0]) + add([].slice.call(arguments, 1))
+}
