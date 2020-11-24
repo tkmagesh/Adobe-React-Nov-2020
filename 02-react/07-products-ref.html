@@ -11,17 +11,15 @@
     <script type="text/babel">
         class Products extends React.Component{
             state = { 
-                productNames : [],
-                newProductName : ''
+                productNames : []
             }
+
+            txtNewProductNameRef = React.createRef();
 
             onAddClick = () => {
-                const { productNames, newProductName } = this.state;
+                const { productNames } = this.state,
+                    newProductName = this.txtNewProductNameRef.current.value;
                 this.setState({ productNames : [...productNames, newProductName] })
-            }
-
-            onProductNameChange = (evt) => {
-                this.setState({ newProductName : evt.target.value})
             }
 
             onRemoveClick = (productToRemove) => {
@@ -42,7 +40,7 @@
                         <h1>Products</h1>
                         <hr/>
                         <label htmlFor="">Product Name :</label>
-                        <input type="text" onChange={this.onProductNameChange} />
+                        <input type="text" ref={this.txtNewProductNameRef} />
                         <input type="button" value="Add New" onClick={this.onAddClick}/>
                         <ol>
                            {productItems}
