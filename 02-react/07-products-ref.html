@@ -20,6 +20,8 @@
                 const { productNames } = this.state,
                     newProductName = this.txtNewProductNameRef.current.value;
                 this.setState({ productNames : [...productNames, newProductName] })
+                this.txtNewProductNameRef.current.value = '';
+                this.txtNewProductNameRef.current.focus();
             }
 
             onRemoveClick = (productToRemove) => {
