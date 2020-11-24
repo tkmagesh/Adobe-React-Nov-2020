@@ -164,9 +164,13 @@ Application
     data -> presented -> interacts 
 
     html - Virtual DOM - DOM Tree - Presentation
-
+    
 
 HTML                                JSX
 Open tags are allowed               Every open tag must have a  corresponding close tag
 "for" attribute is valid            Use "htmlFor" instead
 "class" attribute is valid          Use "className" instead
+
+
+
+Greeter.prototype.render.toString()
