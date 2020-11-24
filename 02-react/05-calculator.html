@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <style>
+        .field{
+            margin-bottom : 10px;
+        }
+        label{
+            display : block
+        }
+        .result {
+            font-size: 18pt;
+        }
+    </style>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <script type="text/babel">
+        class CalculatorModel {
+            no1 = 0;
+            no2 = 0;
+            result = 0;
+
+            add(){
+                this.result = this.no1 + this.no2;
+            }
+
+            subtract(){
+                this.result = this.no1 - this.no2;
+            }
+
+            multiply(){
+                this.result = this.no1 * this.no2;
+            }
+
+            divide(){
+                this.result = this.no1 / this.no2;
+            }
+        }
+
+        class Calculator extends React.Component{
+            state = { 
+                result : 0
+            }
+            onAddClick = () => {
+                this.props.model.add ();
+                this.setState({ result : this.props.model.result});
+            }
+
+            onSubtractClick  = () => {
+                this.props.model.subtract();
+                this.setState({ result : this.props.model.result});
+                
+            }
+            onMultiplyClick = () => {
+                this.props.model.multiply();
+                this.setState({ result : this.props.model.result});
+                
+            }
+            onDivideClick  = () => {
+                this.props.model.divide();
+                this.setState({ result : this.props.model.result});
+                
+            }
+            render(){
+                const { model } = this.props,
+                    { result } = this.state;
+                return(
+                    <div>
+                        <h1>Caluclator</h1>
+                        <hr/>
+                        <div className="field">
+                            <label htmlFor="">Number 1 :</label>
+                            <input type="number" 
+                                onChange={ evt => model.no1 = parseInt(evt.target.value) }/>
+                        </div>
+                        <div className="field">
+                            <label htmlFor="">Number 2 :</label>
+                            <input type="number" 
+                                onChange={ evt => model.no2 = parseInt(evt.target.value) }/>
+                        </div>
+                        <input type="button" value="Add" onClick={this.onAddClick}/>
+                        <input type="button" value="Subtract" onClick={this.onSubtractClick}/>
+                        <input type="button" value="Multiply" onClick={this.onMultiplyClick}/>
+                        <input type="button" value="Divide" onClick={this.onDivideClick}/>
+                    
+                        <div className="field">
+                            <div className="result">{result}</div>
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        const model = new CalculatorModel();
+        ReactDOM.render(
+            <Calculator model={model}/>
+                , document.getElementById('root')
+        )
+    </script>
+</head>
+<body>
+    <div id="root">
+        
+    </div>
+</body>
+</html>
