@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Intro</title>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+</head>
+<body>
+    <input type="button" value="Render" id="btnRender">
+    <!-- <div>
+        <label for="">Counter : </label>
+        <span id="spanCounter">0</span>
+    </div> -->
+    <div id="root"></div>
+    <script>
+        
+        var counter = 0;
+        function onBtnRenderClick(){
+            ++counter;
+            var appEle = React.createElement('div', null, 
+                React.createElement('h1', null, 'React.js'),
+                React.createElement('hr'),
+                React.createElement('div', null, 
+                    React.createElement('label', null, 'Counter : '),
+                    React.createElement('span', null, counter)
+                ),
+                React.createElement('section', null, 
+                    React.createElement('h3', null, 'Introduction'),
+                    React.createElement('p', null, 'Exercitation Lorem do eiusmod reprehenderit minim id in deserunt pariatur duis. Culpa labore ea ut reprehenderit amet sit consectetur quis ut incididunt et. Nostrud deserunt amet ipsum sit.'),
+                    React.createElement('p', null, 'Veniam amet commodo dolore cillum adipisicing consectetur. Exercitation proident est dolore sit consectetur aliqua qui. Enim proident laboris occaecat id veniam quis ad ea et officia excepteur in.'),
+                    React.createElement('p', null, 'Enim ipsum occaecat sunt enim in ea laboris dolor duis do ex. Eiusmod dolore et nostrud adipisicing dolore labore ex in fugiat eiusmod tempor nisi excepteur quis. Ea ullamco consectetur esse nisi dolor pariatur aute eu amet. Aliqua Lorem duis non sit et enim ullamco anim elit voluptate officia esse. In consectetur nostrud adipisicing mollit sint cillum. Pariatur aute fugiat qui minim sit dolore est quis.')
+                ),
+                React.createElement('section', null, 
+                    React.createElement('h3', null, 'Advantages'),
+                    React.createElement('ol', null, 
+                        React.createElement('li', null, 'Declarative'),
+                        React.createElement('li', null, 'Efficient'),
+                    )
+                )
+            )
+            ReactDOM.render(appEle, document.getElementById('root'));
+
+            //using the actual DOM
+            //document.getElementById('spanCounter').innerText = counter;
+        }
+        var btnRender = document.getElementById('btnRender')
+        btnRender.addEventListener('click', onBtnRenderClick)
+    </script>
+</body>
+</html>
