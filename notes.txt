@@ -169,3 +169,4 @@ Application
 HTML                                JSX
 Open tags are allowed               Every open tag must have a  corresponding close tag
 "for" attribute is valid            Use "htmlFor" instead
+"class" attribute is valid          Use "className" instead
