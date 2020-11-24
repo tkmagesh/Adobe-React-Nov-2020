@@ -15,6 +15,12 @@
         .result {
             font-size: 18pt;
         }
+        .positive{
+            color : green;
+        }
+        .negative{
+            color : red;
+        }
     </style>
     <script src="react.development.js"></script>
     <script src="react-dom.development.js"></script>
@@ -86,11 +92,6 @@
                             labelText="Number 2 :" 
                             onValueChange={ value => model.no2 = value }
                         />
-                        <div className="field">
-                            <label htmlFor="">Number 2 :</label>
-                            <input type="number" 
-                                onChange={ evt => model.no2 = parseInt(evt.target.value) }/>
-                        </div>
                         <input type="button" value="Add" onClick={this.onAddClick}/>
                         <input type="button" value="Subtract" onClick={this.onSubtractClick}/>
                         <input type="button" value="Multiply" onClick={this.onMultiplyClick}/>
@@ -116,9 +117,10 @@
         }
         class CalculatorResult extends React.Component{
             render(){
+                const resultStyle = 'result ' + (this.props.data < 0 ? 'negative' : 'positive')
                 return(
                     <div className="field">
-                        <div className="result">{this.props.data}</div>
+                        { this.props.data === 0 ? null : (<div className={resultStyle}>{this.props.data}</div>) }
                     </div>
                 )
             }
