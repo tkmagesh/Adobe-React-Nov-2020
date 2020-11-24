@@ -17,8 +17,18 @@
     <script type="text/babel">
          class Greeter extends React.Component{
             //data
+            state = {
+                userName : '',
+                message : 'A dummy greet message'
+            }
 
             //UI Behavior
+            onBtnGreetClick = () => {
+                console.log('Greet button is clicked');
+                this.setState({
+                    message : 'A new greet message will be displayed here'
+                });
+            }
 
             //Presentation
             render(){
@@ -28,8 +38,8 @@
                         <hr/>
                         <label htmlFor="">User Name : </label>
                         <input type="text" name="" id="" />
-                        <input type="button" value="Greet" />
-                        <div className="highlight">[GreetMessage]</div>
+                        <input type="button" value="Greet" onClick={this.onBtnGreetClick} />
+                        <div className="highlight">{this.state.message}</div>
                     </div>
                 )
             }
