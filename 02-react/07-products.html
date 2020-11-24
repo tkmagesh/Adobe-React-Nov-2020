@@ -11,7 +11,7 @@
     <script type="text/babel">
         class Products extends React.Component{
             render(){
-                const productNames = [];
+                const productNames = ['Pen'];
                 /* 
                 const productItems = [];
                 for (let index = 0; index < productNames.length; index++) {
@@ -20,7 +20,12 @@
                     productItems.push(productItem);                    
                 } 
                 */
-                const productItems = productNames.map((productName, idx) => (<li key={idx}>{productName}</li>))
+                const  productItems = productNames.map((productName, idx) => (
+                    <li key={idx}>
+                        <span> {productName} </span>
+                        <input type="button" value="Remove" />
+                    </li>)
+                )
                 return(
                     <div>
                         <h1>Products</h1>
