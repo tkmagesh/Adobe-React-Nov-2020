@@ -66,6 +66,11 @@
                 this.setState({ result : this.props.model.result});
                 
             }
+
+            onNumber1Change = ( value ) => {
+                this.props.model.no1 = value;
+            }
+
             render(){
                 const { model } = this.props,
                     { result } = this.state;
@@ -75,7 +80,7 @@
                         <hr/>
                         <CalculatorInput 
                             labelText="Number 1 :" 
-                            onValueChange={ value => model.no1 = value }
+                            onValueChange={ this.onNumber1Change }
                         />
                         <CalculatorInput 
                             labelText="Number 2 :" 
