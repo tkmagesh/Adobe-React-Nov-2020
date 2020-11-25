@@ -9,7 +9,6 @@ import bugActionCreators from './bugTracker/actions';
 import store from './store';
 import BugTracker from './bugTracker';
 
-console.log(bugActionCreators);
 
 const bugActionDispatchers = bindActionCreators(
   bugActionCreators,

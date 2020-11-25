@@ -210,3 +210,9 @@ installing Redux
         OR
     yarn add redux
     
+Day-3 assignment
+Add the 'Projects' module to 'my-app' with 'add, list, remove' functionality
+
+
+https://www.youtube.com/watch?v=URogJAMqI2E&list=PL2OMOVtxSKTh1ZiQlsRJpsiMY3-iF44Ng&index=1
+http://bit.ly/react-videos
