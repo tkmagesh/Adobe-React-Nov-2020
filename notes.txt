@@ -199,3 +199,14 @@ Hooks
         useCallback
         
         useReducer
+
+ES6 Modules
+    - Everything defined in a JS/TS/JSX file is considered PRIVATE
+    - Public entities have to explicityly exported (EXPORT)
+    - Public Entities from other JS/JSX/TS files have to explicityly imported (IMPORT)
+
+installing Redux
+    npm install redux
+        OR
+    yarn add redux
+    
