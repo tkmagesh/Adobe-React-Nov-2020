@@ -174,3 +174,14 @@ Open tags are allowed               Every open tag must have a  corresponding cl
 
 
 Greeter.prototype.render.toString()
+
+State:
+    - UI State 
+        Data used for presentation logic
+        Highly unlikely that this data is needed in other components
+        Feel free to maintain this data in the component state
+
+    - Application State
+        Data used for non ui logic
+        Highly likely that this data is needed in other components
+        DO NOT maintain this data in the component state

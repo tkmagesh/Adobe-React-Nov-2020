@@ -24,7 +24,7 @@
                     productNames : newProductNames
                 }, () => {
                     this.props.onListChange([...newProductNames]);
-                })
+                });
                 this.txtNewProductNameRef.current.value = '';
                 this.txtNewProductNameRef.current.focus();
             }
