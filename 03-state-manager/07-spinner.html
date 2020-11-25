@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>State Manager - Intro</title>
+    <script src="stateManager.js"></script>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <!-- 
+        01. Initial
+        02. Remove the dependency of the store in the component
+        03. Delegate the responsibility of creating actions to 'actionCreators'
+        04. Simplfying how the actionCreators are passed to the component
+        05. Introducing spinnerActionDispatchers
+        06. Generalizing the 'bindActionCreators' function
+        07. Refactoring 'bindActionCreators' to StateManager.js
+     -->
+    <script type="text/babel">
+        class Spinner extends React.Component{
+            onDownClick = () => {
+                this.props.down(); /* action dispatcher method which will get action from actionCreator and dispatch it */
+            }
+            onUpClick = () => {
+                this.props.up();                
+            }
+            render(){
+                const value = this.props.value;
+                return(
+                    <div>
+                        <h3>Spinner</h3>
+                        <hr/>
+                        <input type="button" value="DOWN" onClick={this.onDownClick}/>
+                        <span> [ {value} ] </span>
+                        <input type="button" value="UP" onClick={this.onUpClick}/>
+                    </div>
+                )
+            }
+        }
+
+        function spinnerReducer(currentState = 0, action){
+            if (action.type === 'UP') return currentState + 1;
+            if (action.type === 'DOWN') return currentState - 1;
+            return currentState;
+        }
+
+        const store = StateManager.createStore(spinnerReducer);
+
+        const spinnerActionCreators = { 
+            down(){
+                const action = { type : 'DOWN' };
+                return action;
+            }, 
+            up(){
+                const action = { type : 'UP' };
+                return action;
+            }
+        }
+
+        const spinnerActionDispatchers = StateManager.bindActionCreators(
+            spinnerActionCreators, 
+            store.dispatch
+        );
+
+        function renderApp(){
+            const spinnerValue = store.getState();
+            ReactDOM.render(
+                <Spinner 
+                    value={spinnerValue} 
+                    {...spinnerActionDispatchers}
+                />
+            , document.getElementById('root'))
+        }
+        renderApp();
+        store.subscribe(renderApp);
+    </script>
+</head>
+<body>
+    <h1>State Manager</h1>
+    <div id="root">
+        
+    </div>
+</body>
+</html>
