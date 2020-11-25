@@ -185,3 +185,16 @@ State:
         Data used for non ui logic
         Highly likely that this data is needed in other components
         DO NOT maintain this data in the component state
+
+Hooks
+    functions to manage sideeffects in functional components
+    hook functions has to start with 'use'
+    Built in hooks
+        useState
+            - manage state
+        useEffects
+            - life cycle events
+        useMemo
+            - memoized callback
+        useCallback
+            
