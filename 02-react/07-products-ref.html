@@ -18,8 +18,13 @@
 
             onAddClick = () => {
                 const { productNames } = this.state,
-                    newProductName = this.txtNewProductNameRef.current.value;
-                this.setState({ productNames : [...productNames, newProductName] })
+                    newProductName = this.txtNewProductNameRef.current.value,
+                    newProductNames = [...productNames, newProductName] 
+                this.setState({ 
+                    productNames : newProductNames
+                }, () => {
+                    this.props.onListChange([...newProductNames]);
+                })
                 this.txtNewProductNameRef.current.value = '';
                 this.txtNewProductNameRef.current.focus();
             }
@@ -27,7 +32,9 @@
             onRemoveClick = (productToRemove) => {
                 const { productNames } = this.state,
                     updatedProductNames = productNames.filter(product => product !== productToRemove);
-                this.setState({ productNames: updatedProductNames })
+                this.setState({ productNames: updatedProductNames }, () => {
+                    this.props.onListChange([...updatedProductNames]);
+                })
             }
             render(){
                 const { productNames, newProductName } = this.state;
@@ -52,10 +59,41 @@
             }
         }
 
-        ReactDOM.render(<Products/>, document.getElementById('root'))
+        class ProductsCount extends React.Component{
+            render(){
+                return (
+                     <div>
+                        <label>Product Count : </label>
+                        <span>{this.props.data}</span>
+                    </div>
+                )
+            }
+        }
+
+        class ProductsApp extends React.Component{
+            state = { 
+                productNames : []
+            }
+            productNamesChanged = (productNames) => {
+                this.setState({ productNames : productNames })
+            }
+            render(){
+                return(
+                    <div>
+                        <ProductsCount data={this.state.productNames.length}/>
+                        <Products onListChange={this.productNamesChanged}/>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <ProductsApp/>
+            , document.getElementById('root'))
     </script>
 </head>
 <body>
+    
     <div id="root">
         
     </div>
