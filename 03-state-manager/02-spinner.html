@@ -10,21 +10,21 @@
     <script src="react-dom.development.js"></script>
     <script src="babel.min.js"></script>
     <!-- 
-        01. initial
-
+        01. Initial
+        02. Remove the dependency of the store in the component
      -->
     <script type="text/babel">
         class Spinner extends React.Component{
             onDownClick = () => {
                 const action = { type : 'DOWN' };
-                this.props.store.dispatch(action);
+                this.props.dispatch(action);
             }
             onUpClick = () => {
                 const action = { type : 'UP' };
-                this.props.store.dispatch(action);
+                this.props.dispatch(action);
             }
             render(){
-                const value = this.props.store.getState();
+                const value = this.props.value;
                 return(
                     <div>
                         <h3>Spinner</h3>
@@ -46,8 +46,9 @@
         const store = StateManager.createStore(spinnerReducer);
 
         function renderApp(){
+            const spinnerValue = store.getState();
             ReactDOM.render(
-                <Spinner store={store}/>
+                <Spinner value={spinnerValue} dispatch={store.dispatch}/>
             , document.getElementById('root'))
         }
         renderApp();
