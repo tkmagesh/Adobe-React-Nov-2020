@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -9,10 +9,12 @@ import './index.css';
 import bugActionCreators from './actions';
 
 const BugTracker = ({ bugs, addNew, remove, toggle, projects, load }) => {
+  useEffect(() => {
+    load();
+  }, [load]);
   return (
     <Fragment>
       <h3>Bug Tracker</h3>
-      <input type="button" value="LOAD" onClick={load} />
       <hr/>
       <BugStats bugs={bugs} />
       <BugEdit addNew={addNew} projects={projects} />

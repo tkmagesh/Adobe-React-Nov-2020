@@ -10,13 +10,15 @@ import BugTracker from './bugTracker';
 import Projects from './projects'
 import ErrorDisplay from './error';
 
-import axios from 'axios';
-window['axios'] = axios;
+import TimerContainer from './timer';
 
 //render the application
 ReactDOM.render(
   <Provider store={store}>
     <Fragment>
+      <h1>My App</h1>
+      <hr/>
+      <TimerContainer/>
       <Projects />
       <BugTracker />
       <br />

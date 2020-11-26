@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -40,13 +40,13 @@ export const projectActionCreators = {
        };
 
 export const Projects = ({projects, addNew, load}) => {
+  useEffect(() => {
+    load()
+  }, [load]);
     const [ newProjectName, setNewProjectName ] = React.useState('');
     return (
       <div>
         <h3>Projects</h3>
-        <div>
-          <input type="button" value="Load Projects" onClick={load} />
-        </div>
         <label>Project Name : </label>
         <input
           type="text"

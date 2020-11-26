@@ -6,6 +6,13 @@
       "isClosed": false,
       "createdAt": "2019-09-27T06:34:45.852Z",
       "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur aliquam id pariatur ipsa expedita nesciunt doloribus facilis architecto quisquam totam veniam odio, minima, labore deleniti, neque nam quia amet eveniet."
+    },
+    {
+      "id": 2,
+      "name": "Server communication failure",
+      "createdAt": "2020-11-26T11:17:31.342Z",
+      "isClosed": false,
+      "project": "Bug Tracker"
     }
   ],
   "projects": [

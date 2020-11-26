@@ -235,3 +235,11 @@ Presentation Components / Dumb Components
 
 Middleware
     Any logic that is common across all the actions can be implemented as a middleware
+
+component life cycle events
+    componentWillMount
+    componentDidMount
+    componentWillUpdate
+    componentWillUnmount
+
+    useEffects - hook to handle lifecycle events in functional components
