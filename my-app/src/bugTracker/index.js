@@ -8,13 +8,13 @@ import BugList from './views/BugList';
 import './index.css';
 import bugActionCreators from './actions';
 
-const BugTracker = ({ bugs, addNew, remove, toggle }) => {
+const BugTracker = ({ bugs, addNew, remove, toggle, projects }) => {
   return (
     <Fragment>
       <h3>Bug Tracker</h3>
       <hr/>
       <BugStats bugs={bugs} />
-      <BugEdit addNew={addNew} />
+      <BugEdit addNew={addNew} projects={projects} />
       <BugList {...{ bugs, toggle, remove }} />
     </Fragment>
   );
@@ -22,8 +22,9 @@ const BugTracker = ({ bugs, addNew, remove, toggle }) => {
 
 function mapStateToProps(storeState){
   //given the store state, extract what is needed for the component
-  const bugsState = storeState.bugsState;
-  return { bugs : bugsState };
+  const bugsState = storeState.bugsState,
+    projectsState = storeState.projectsState;
+  return { bugs : bugsState, projects : projectsState };
 }
 
 function mapDispatchToProps(dispatch){
