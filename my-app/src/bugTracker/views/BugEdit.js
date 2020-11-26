@@ -3,7 +3,12 @@ import React, { useState } from 'react';
 const BugEdit = ({ addNew, projects }) => {
   const [newBugName, setNewBugName] = useState("");
   const [selectedProject, setSelectedProject] = useState(0);
-
+  const onAddNew = () => {
+    const selectedProjectObj = projects.find(project => project.id === parseInt(selectedProject));
+    if ( selectedProjectObj ){
+      addNew(newBugName, selectedProjectObj.name);
+    }
+  }
   return (
     <section className="edit">
       <label htmlFor="">Bug Name :</label>
@@ -17,7 +22,7 @@ const BugEdit = ({ addNew, projects }) => {
           ))
         }
       </select>
-      <input type="button" value="Add New" onClick={() => addNew(newBugName, selectedProject)} />
+      <input type="button" value="Add New" onClick={onAddNew} />
     </section>
   );
 };

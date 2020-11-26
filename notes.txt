@@ -232,3 +232,6 @@ Presentation Components / Dumb Components
     components that have no knowledge of redux infrastructure
     receive the data and action dispatchers from the parent component
     any number of presentation components are allowed
+
+Middleware
+    Any logic that is common across all the actions can be implemented as a middleware
