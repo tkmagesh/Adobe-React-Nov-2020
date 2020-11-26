@@ -1,8 +1,13 @@
-import { createStore } from 'redux';
-//import bugsReducer from '../reducers/bugsReducer';
-import {projectsReducer } from '../projects';
+import { createStore, combineReducers } from 'redux';
 
-//const store = createStore(bugsReducer);
-const store = createStore(projectsReducer);
+import bugsReducer from '../reducers/bugsReducer';
+import { projectsReducer } from '../projects';
 
+const rootReducer = combineReducers({
+    bugsState : bugsReducer,
+    projectsState : projectsReducer
+})
+
+const store = createStore(rootReducer);
+//window['store'] = store;
 export default store;

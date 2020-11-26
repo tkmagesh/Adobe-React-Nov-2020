@@ -8,7 +8,6 @@ export const projectActionCreators = {
 }
 
 export function projectsReducer(currentState = [], action) {
-    console.log(arguments);
     if (action.type === 'PROJECT_ADD_NEW') {
         return [...currentState, action.payload]
     }

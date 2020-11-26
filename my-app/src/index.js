@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -8,29 +8,30 @@ import { bindActionCreators } from 'redux';
 
 import store from './store';
 
-//import bugActionCreators from './bugTracker/actions';
+import bugActionCreators from './bugTracker/actions';
 import { projectActionCreators } from './projects'
 
-//import BugTracker from './bugTracker';
+import BugTracker from './bugTracker';
 import { Projects } from './projects'
 
-/* const bugActionDispatchers = bindActionCreators(
+ const bugActionDispatchers = bindActionCreators(
   bugActionCreators,
   store.dispatch
-); */
+);
 
 const projectActionDispatchers = bindActionCreators(
   projectActionCreators, store.dispatch
 );
 
 function renderApp() {
-  /* const bugs = store.getState();
+  const storeState = store.getState();
+  const projects = storeState.projectsState;
+  const bugs = storeState.bugsState;
   ReactDOM.render(
-    <BugTracker bugs={bugs} {...bugActionDispatchers} />,
-    document.getElementById("root")
-  ); */
-  const projects = store.getState();
-  ReactDOM.render(<Projects projects={projects} {...projectActionDispatchers} />
+    <Fragment>
+      <Projects projects={projects} {...projectActionDispatchers} />
+      <BugTracker bugs={bugs} {...bugActionDispatchers} />
+    </Fragment>
     , document.getElementById("root"))
 }
 renderApp();
