@@ -1,0 +1,21 @@
+{
+  "bugs": [
+    {
+      "id": 1,
+      "name": "Data integrity checks failed",
+      "isClosed": false,
+      "createdAt": "2019-09-27T06:34:45.852Z",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur aliquam id pariatur ipsa expedita nesciunt doloribus facilis architecto quisquam totam veniam odio, minima, labore deleniti, neque nam quia amet eveniet."
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "Bug Tracker"
+    },
+    {
+      "id": 2,
+      "name": "Payroll Master"
+    }
+  ]
+}
