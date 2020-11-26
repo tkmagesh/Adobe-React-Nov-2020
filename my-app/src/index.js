@@ -10,6 +10,9 @@ import BugTracker from './bugTracker';
 import Projects from './projects'
 import ErrorDisplay from './error';
 
+import axios from 'axios';
+window['axios'] = axios;
+
 //render the application
 ReactDOM.render(
   <Provider store={store}>
