@@ -30,3 +30,11 @@ async function addAsyncClient(x, y) {
   var result = await addAsync(x, y);
   console.log(`result = ${result}`);
 }
+
+function testClient(){
+    var p1 = addAsync(10,20)
+    var p2 = addAsync(30,40)
+    var p3 = addAsync(40,50)
+    Promise.all([p1,p2,p3])
+        .then(([r1, r2, r3]) =>  console.log(r1, r2, r3));  
+}
