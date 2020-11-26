@@ -1,6 +1,6 @@
 let currentBugId = 0;
 export function addNew(bugName, selectedProject) {
-  return function(getState, dispatch){
+  return function(dispatch, getState){
     const storeState = getState();
     const duplicateBug = storeState.bugsState.find(bug => bug.name === bugName);
     if (duplicateBug){
