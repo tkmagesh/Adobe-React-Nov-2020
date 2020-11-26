@@ -4,7 +4,7 @@ export function addNew(bugName, selectedProject) {
     const storeState = getState();
     const duplicateBug = storeState.bugsState.find(bug => bug.name === bugName);
     if (duplicateBug){
-      console.log('Dubplicate bug exists');
+      dispatch({ type : 'SET_ERROR', payload : 'Duplicate Bug. The bug already exists!'})
     } else {
       const newBug = {
         id: ++currentBugId,

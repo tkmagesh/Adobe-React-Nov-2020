@@ -1,33 +1,10 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import rootReducer from '../reducers';
-
-function loggerMiddleware(store){
-    return function(next){
-        return function(action){
-            console.group(action.type);
-            console.log('Before -> ', store.getState());
-            next(action);
-            console.log("After -> ", store.getState());
-            console.groupEnd();
-        }
-    }
-}
-
-function thunkMiddleware(store){
-    return function(next){
-        return function(action){
-            if (typeof action === 'function'){
-                return action(store.getState, store.dispatch)
-            } 
-            return next(action);
-            
-        }
-    }
-}
+import rootMiddleware from './middlewares';
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(loggerMiddleware, thunkMiddleware)
+  rootMiddleware
 );
 
 export default store;

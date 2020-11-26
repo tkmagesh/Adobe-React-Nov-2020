@@ -2,15 +2,7 @@ import { combineReducers } from 'redux';
 
 import bugsReducer from "./bugsReducer";
 import projectsReducer from "./projectsReducer";
-
-function errorReducer(currentState = '', action){
-  if (action.type === 'SET_ERROR'){
-    return action.payload;
-  } else if (action.type === 'CLEAR_ERROR'){
-      return ''
-  }
-  return currentState
-}
+import errorReducer from './errorReducer';
 
 const rootReducer = combineReducers({
   bugsState: bugsReducer,
