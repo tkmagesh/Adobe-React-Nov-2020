@@ -13,6 +13,21 @@ function loggerMiddleware(store){
     }
 }
 
-const store = createStore(rootReducer, applyMiddleware(loggerMiddleware));
+function thunkMiddleware(store){
+    return function(next){
+        return function(action){
+            if (typeof action === 'function'){
+                return action(store.getState, store.dispatch)
+            } 
+            return next(action);
+            
+        }
+    }
+}
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(loggerMiddleware, thunkMiddleware)
+);
 
 export default store;
