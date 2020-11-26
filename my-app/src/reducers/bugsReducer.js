@@ -12,6 +12,9 @@ function bugsReducer(currentState = [], action) {
       bug.id === bugToReplace.id ? bugToReplace : bug
     );
   }
+  if (action.type === 'BUG_INIT'){
+    return action.payload;
+  }
   return currentState;
 }
 

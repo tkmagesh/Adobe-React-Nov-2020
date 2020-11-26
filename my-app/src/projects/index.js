@@ -6,20 +6,38 @@ import axios from 'axios';
 
 let currentProjectId = 0;
 export const projectActionCreators = {
-    addNew(projectName){
-        const action = { type : 'PROJECT_ADD_NEW', payload : { id : ++currentProjectId, name : projectName,  createdAt : new Date()}}
-        return action;
-    },
-    load(){
-        axios.get('http://localhost:3030/projects')
-            .then(response => {
-                return response.data;
-            })
-            .then(projects => {
-                console.table(projects);
-            })
-    }
-}
+         addNew(projectName) {
+           const action = {
+             type: "PROJECT_ADD_NEW",
+             payload: {
+               id: ++currentProjectId,
+               name: projectName,
+               createdAt: new Date()
+             }
+           };
+           return action;
+         },
+         /* load(){
+        return function(dispatch, getState){
+            axios.get('http://localhost:3030/projects')
+                .then(response => {
+                    return response.data;
+                })
+                .then(projects => {
+                    const action = { type : 'PROJECT_INIT', payload : projects}
+                    dispatch(action);
+                })
+        }
+    } */
+         load() {
+           return async function(dispatch, getState) {
+             const response = await axios.get("http://localhost:3030/projects")
+             const projects = response.data;
+             const action = { type: "PROJECT_INIT", payload: projects };
+             dispatch(action);
+           };
+         }
+       };
 
 export const Projects = ({projects, addNew, load}) => {
     const [ newProjectName, setNewProjectName ] = React.useState('');
