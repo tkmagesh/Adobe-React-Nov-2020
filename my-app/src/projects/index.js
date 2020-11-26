@@ -1,4 +1,7 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
 let currentProjectId = 0;
 export const projectActionCreators = {
     addNew(projectName){
@@ -30,3 +33,15 @@ export const Projects = ({projects, addNew}) => {
         </div>
     )
 }
+
+function mapStateToProps(storeState){
+    const projectsState = storeState.projectsState;
+    return { projects : projectsState };
+}
+
+function mapDispatchToProps(dispatch){
+    const projectActionDispatchers = bindActionCreators(projectActionCreators, dispatch);
+    return projectActionDispatchers;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Projects);

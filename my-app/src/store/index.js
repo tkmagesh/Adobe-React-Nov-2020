@@ -9,5 +9,5 @@ const rootReducer = combineReducers({
 })
 
 const store = createStore(rootReducer);
-//window['store'] = store;
+window['store'] = store;
 export default store;

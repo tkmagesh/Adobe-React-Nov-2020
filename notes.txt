@@ -216,3 +216,19 @@ Add the 'Projects' module to 'my-app' with 'add, list, remove' functionality
 
 https://www.youtube.com/watch?v=URogJAMqI2E&list=PL2OMOVtxSKTh1ZiQlsRJpsiMY3-iF44Ng&index=1
 http://bit.ly/react-videos
+
+React-Redux
+    to install
+        npm install react-redux (OR) yarn add react-redux
+    adapters between react and redux
+    - connect
+    - Provider
+
+Container Components / Smart Components
+    components that interface with the redux infrastructure (using the 'connect' api)
+    advisable to have fewere container components in an application
+
+Presentation Components / Dumb Components
+    components that have no knowledge of redux infrastructure
+    receive the data and action dispatchers from the parent component
+    any number of presentation components are allowed
