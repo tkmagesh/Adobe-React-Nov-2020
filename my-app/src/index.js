@@ -5,22 +5,33 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { bindActionCreators } from 'redux';
-import bugActionCreators from './bugTracker/actions';
+
 import store from './store';
-import BugTracker from './bugTracker';
 
+//import bugActionCreators from './bugTracker/actions';
+import { projectActionCreators } from './projects'
 
-const bugActionDispatchers = bindActionCreators(
+//import BugTracker from './bugTracker';
+import { Projects } from './projects'
+
+/* const bugActionDispatchers = bindActionCreators(
   bugActionCreators,
   store.dispatch
+); */
+
+const projectActionDispatchers = bindActionCreators(
+  projectActionCreators, store.dispatch
 );
 
 function renderApp() {
-  const bugs = store.getState();
+  /* const bugs = store.getState();
   ReactDOM.render(
     <BugTracker bugs={bugs} {...bugActionDispatchers} />,
     document.getElementById("root")
-  );
+  ); */
+  const projects = store.getState();
+  ReactDOM.render(<Projects projects={projects} {...projectActionDispatchers} />
+    , document.getElementById("root"))
 }
 renderApp();
 store.subscribe(renderApp);
