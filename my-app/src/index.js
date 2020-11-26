@@ -9,6 +9,7 @@ import store from './store';
 import BugTracker from './bugTracker';
 import Projects from './projects'
 
+
 //render the application
 ReactDOM.render(
   <Provider store={store}>
